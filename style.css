@@ -5,6 +5,7 @@
     text-decoration: none;
 }
 
+/* TRANSFORMATION */
 div.container{
     display: flex;
     /* justify-content: center; */
@@ -38,3 +39,98 @@ div.container:hover div.ball{
     transform: translateX(400px);
 }
 
+/* ANIMATIONS */
+div.container1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-color: darkgray;
+}
+div.container1 div.square{
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    /* here the default for time function us LINEAR where it moves in a normal fashion as seen when we dont specify this style here */
+}
+
+
+div.container1:hover div.square{
+    animation-duration: 3s;
+    animation-name: stylish-rotate;
+    animation-fill-mode: forwards; /*property for the animation to retainits state*/
+    animation-fill-mode:cubic-bezier(0.86, 0.63, 1, 1) ;
+    animation-iteration-count: infinite;
+    /* animation-delay: 1s; */
+}
+
+div.square:nth-child(2){
+    /* animation-delay: 2s; */
+    /* animation-name: bounce;
+    animation-duration: 2s; */
+    animation: bounce 2s;
+}
+div.square:nth-child(3){
+    /* animation-delay: 4s; */
+    animation: bounce 4s;
+    
+}
+div.square:nth-child(4){
+    animation-delay: 3s;
+}
+
+@keyframes bounce{
+    0%{}
+    25%{
+        transform: translateY(100px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    75%{
+        transform: translateY(-100px);
+    }
+    100%{}
+}
+
+@keyframes stylish-rotate {
+    /* 0%{} At the the time of 0% completion of the transition this is going to happen
+    25%{
+        background-color: darkkhaki;
+    }
+    50%{
+        background-color: coral;
+    }
+    100%{
+        transform: rotateZ(120deg);
+        background-color: darkcyan;
+        transform: scale(2); *At the the time of 100% completion of the transition this is going to happen
+    } */
+    0%{
+        background-color: violet;
+    }
+    14%{
+        background-color: indigo;
+    }
+    28%{
+        background-color: blue;
+    }
+    42%{
+        background-color: green;
+    }
+    56%{
+        background-color: yellow;
+    }
+    70%{
+        background-color: orange;
+    }
+    84%{
+        background-color: red;
+    }
+    100%{
+        background-color: white;
+        border-radius: 50%;
+        transform: rotateZ(360deg);
+    }
+}
